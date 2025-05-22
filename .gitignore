@@ -1,0 +1,42 @@
+# Ignore node modules (if using npm/yarn)
+node_modules/
+
+# Ignore log files and OS files
+*.log
+.DS_Store
+Thumbs.db
+
+# Ignore build directories
+dist/
+build/
+
+# Ignore environment variables
+.env
+
+# Ignore compiled files
+*.class
+*.pyc
+*.exe
+
+# Ignore VSCode and JetBrains IDE configs
+.vscode/
+.idea/
+
+# Ignore dependency directories
+bower_components/
+jspm_packages/
+
+# Ignore output from test coverage tools
+coverage/
+
+# Ignore files for macOS and Linux
+ehthumbs.db
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+*.swp
+
+# Ignore any personal files
+*.sublime-workspace
+*.sublime-project
