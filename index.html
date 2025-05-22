@@ -91,13 +91,14 @@
         </section>
         <section id="contact" class="card">
             <h2><i class="fas fa-envelope"></i> تواصل معي</h2>
-            <form>
+            <form id="contact-form" novalidate>
                 <div class="input-group">
-                    <input type="text" placeholder="اسمك" required>
-                    <input type="email" placeholder="بريدك الإلكتروني" required>
+                    <input type="text" id="name" placeholder="اسمك" required>
+                    <input type="email" id="email" placeholder="بريدك الإلكتروني" required>
                 </div>
-                <textarea placeholder="رسالتك" required></textarea>
+                <textarea id="message" placeholder="رسالتك" required></textarea>
                 <button type="submit"><i class="fas fa-paper-plane"></i> إرسال</button>
+                <div id="form-msg" class="form-msg"></div>
             </form>
             <div class="social-links" style="margin-top: 15px; font-size: 1.5em;">
                 <a href="https://facebook.com/yourprofile" target="_blank" title="Facebook">

@@ -9,6 +9,15 @@
   --transition: 0.3s;
 }
 
+/* وضع ليلي */
+body.dark {
+  --main-bg: #23262f;
+  --card-bg: #171923;
+  --primary: #4f8cff;
+  --secondary: #00c1d4;
+  --text-main: #f2f2f2;
+}
+
 body {
   background: var(--main-bg);
   color: var(--text-main);
@@ -16,6 +25,7 @@ body {
   font-family: 'Cairo', Tahoma, Arial, sans-serif;
   line-height: 1.7;
   direction: rtl;
+  transition: background var(--transition), color var(--transition);
 }
 
 header {
@@ -25,6 +35,7 @@ header {
   box-shadow: var(--shadow);
   border-bottom-left-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
+  transition: background var(--transition);
 }
 
 .container {
@@ -72,11 +83,11 @@ header {
   background: none;
   border: none;
   color: #fff;
-  font-size: 1.4em;
+  font-size: 1.5em;
   cursor: pointer;
-  transition: color var(--transition);
+  transition: color var(--transition), transform 0.2s;
 }
-#toggle-theme:hover { color: var(--secondary); }
+#toggle-theme:hover { color: var(--secondary); transform: scale(1.1); }
 
 .cv-btn {
   background: var(--secondary);
@@ -123,7 +134,7 @@ main {
   box-shadow: var(--shadow);
   margin-bottom: 28px;
   padding: 26px 30px;
-  transition: box-shadow var(--transition);
+  transition: box-shadow var(--transition), background var(--transition), color var(--transition);
 }
 
 .card h2 {
@@ -152,7 +163,7 @@ main {
 }
 .timeline .event {
   display: inline-block;
-  color: #333;
+  color: inherit;
   margin-top: 3px;
 }
 
@@ -174,7 +185,10 @@ main {
   min-width: 230px;
   max-width: 350px;
   margin-bottom: 14px;
-  transition: box-shadow var(--transition), transform var(--transition);
+  transition: box-shadow var(--transition), transform var(--transition), background var(--transition);
+}
+body.dark .project-card {
+  background: #1d2337;
 }
 .project-card:hover {
   box-shadow: 0 4px 16px rgba(44,62,80,0.12);
@@ -196,7 +210,6 @@ main {
 .project-card p {
   font-size: 0.97em;
   margin: 5px 0 14px 0;
-  color: #444;
 }
 .download-btn {
   background: var(--secondary);
@@ -224,6 +237,7 @@ form {
   display: flex;
   flex-direction: column;
   gap: 13px;
+  position: relative;
 }
 .input-group {
   display: flex;
@@ -237,6 +251,12 @@ form {
   border: 1px solid #e5e5e5;
   font-size: 1em;
   background: #fafcff;
+  transition: border 0.2s;
+  outline: none;
+}
+.input-group input:focus,
+textarea:focus {
+  border: 1.5px solid var(--secondary);
 }
 textarea {
   padding: 10px;
@@ -246,6 +266,8 @@ textarea {
   font-size: 1em;
   background: #fafcff;
   resize: vertical;
+  min-height: 80px;
+  transition: border 0.2s;
 }
 form button[type="submit"] {
   background: var(--primary);
@@ -259,6 +281,26 @@ form button[type="submit"] {
 }
 form button[type="submit"]:hover {
   background: var(--secondary);
+}
+.form-msg {
+  margin-top: 10px;
+  font-size: 1em;
+  text-align: center;
+  display: none;
+}
+.form-msg.success {
+  color: #26b34a;
+  display: block;
+  animation: fadeIn 1s;
+}
+.form-msg.error {
+  color: #d94a38;
+  display: block;
+  animation: fadeIn 1s;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .social-links a {
@@ -277,6 +319,7 @@ footer {
   border-top-right-radius: var(--border-radius);
   margin-top: 22px;
   font-size: 0.98em;
+  transition: background var(--transition);
 }
 
 /* Responsive Design */
